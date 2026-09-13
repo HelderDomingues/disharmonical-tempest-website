@@ -1,0 +1,21 @@
+# Disharmonical Tempest — site settings (edit via /admin)
+# Release date format: ISO 8601. Streaming links appear in Hero + Music once filled.
+
+social:
+  instagram: "https://instagram.com/disharmonicaltempest"
+  youtube: ""
+  spotify: ""
+  deezer: ""
+  appleMusic: ""
+  bandcamp: ""
+
+release:
+  # New single/album streaming date
+  date: "2026-09-18"
+  titlePt: "EP autointitulado · AKASHA Records"
+  titleEn: "Self-titled EP · AKASHA Records"
+
+contact:
+  booking: "booking@disharmonicaltempest.com"
+  press: "press@disharmonicaltempest.com"
+  general: "contato@disharmonicaltempest.com"

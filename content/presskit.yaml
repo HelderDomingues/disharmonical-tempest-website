@@ -1,0 +1,34 @@
+# Press kit content. Images live in public/images/presskit/ — upload via /admin.
+photos:
+  - "/images/band.webp"
+
+logos:
+  - "/images/logo.svg"
+
+bioShort:
+  pt: >-
+    Pioneira do Death Metal Melódico no Brasil, formada em Campo Grande (MS)
+    nos anos 1990. Após a demo Diatessaron (1998) e a coletânea The Winds of a
+    New Millennium Vol.3 (Demise Records, 2001), a banda retorna em 2026 —
+    aniversário de 30 anos — com o EP autointitulado, produzido por Tarsos
+    Morais e lançado pela AKASHA Records.
+  en: >-
+    A pioneer of Melodic Death Metal in Brazil, formed in Campo Grande (MS) in
+    the 1990s. After the demo Diatessaron (1998) and the compilation The Winds
+    of a New Millennium Vol.3 (Demise Records, 2001), the band returns in 2026
+    — its 30th anniversary — with the self-titled EP, produced by Tarsos
+    Morais and released via AKASHA Records.
+
+members:
+  - name: "Anderson Freitas"
+    role: "Guitarra"
+  - name: "Denis Subtil"
+    role: "Teclados"
+  - name: "Fernando Louveira"
+    role: "Vocais"
+  - name: "Helder Domingues"
+    role: "Guitarra"
+  - name: "Nory Uehara"
+    role: "Bateria"
+  - name: "Tarsos Morais"
+    role: "Baixo"

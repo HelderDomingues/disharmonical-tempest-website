@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Disharmonical Tempest · CMS</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      CMS.init({
+        config: {
+          load_config_file: false,
+          backend: {
+            name: "git-gateway",
+            branch: "main",
+          },
+          locale: "pt",
+          site_url: "https://disharmonicaltempest.com",
+          media_folder: "public/images/uploads",
+          public_folder: "/images/uploads",
+          collections: [
+            {
+              name: "settings",
+              label: "Configurações",
+              files: [
+                {
+                  name: "settings",
+                  label: "Redes, lançamento e contato",
+                  file: "content/settings.yaml",
+                  fields: [
+                    {
+                      label: "Redes sociais",
+                      name: "social",
+                      widget: "object",
+                      fields: [
+                        { label: "Instagram", name: "instagram", widget: "string", required: false },
+                        { label: "YouTube", name: "youtube", widget: "string", required: false },
+                        { label: "Spotify", name: "spotify", widget: "string", required: false },
+                        { label: "Deezer", name: "deezer", widget: "string", required: false },
+                        { label: "Apple Music", name: "appleMusic", widget: "string", required: false },
+                        { label: "Bandcamp", name: "bandcamp", widget: "string", required: false },
+                      ],
+                    },
+                    {
+                      label: "Lançamento",
+                      name: "release",
+                      widget: "object",
+                      fields: [
+                        { label: "Data (AAAA-MM-DD)", name: "date", widget: "string" },
+                        { label: "Título (PT)", name: "titlePt", widget: "string", required: false },
+                        { label: "Título (EN)", name: "titleEn", widget: "string", required: false },
+                      ],
+                    },
+                    {
+                      label: "Contato",
+                      name: "contact",
+                      widget: "object",
+                      fields: [
+                        { label: "Contratação", name: "booking", widget: "string", required: false },
+                        { label: "Imprensa", name: "press", widget: "string", required: false },
+                        { label: "Geral", name: "general", widget: "string", required: false },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  name: "bio",
+                  label: "Bio",
+                  file: "content/bio.yaml",
+                  fields: [
+                    { label: "Bio (PT)", name: "pt", widget: "text" },
+                    { label: "Bio (EN)", name: "en", widget: "text" },
+                  ],
+                },
+                {
+                  name: "music",
+                  label: "Música",
+                  file: "content/music.yaml",
+                  fields: [
+                    {
+                      label: "Plataformas",
+                      name: "platforms",
+                      widget: "list",
+                      fields: [
+                        { label: "Nome", name: "name", widget: "string" },
+                        { label: "URL", name: "url", widget: "string", required: false },
+                      ],
+                    },
+                    {
+                      label: "Último lançamento",
+                      name: "latestRelease",
+                      widget: "object",
+                      fields: [
+                        { label: "Título", name: "title", widget: "string", required: false },
+                        { label: "Data (AAAA-MM-DD)", name: "date", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Vídeos",
+                      name: "videos",
+                      widget: "list",
+                      fields: [
+                        { label: "Título", name: "title", widget: "string" },
+                        { label: "YouTube ID", name: "youtubeId", widget: "string" },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "shows",
+              label: "Shows",
+              file: "content/shows.yaml",
+              fields: [
+                {
+                  label: "Shows",
+                  name: "shows",
+                  widget: "list",
+                  fields: [
+                    { label: "Data (AAAA-MM-DD)", name: "date", widget: "string" },
+                    { label: "Casa / local", name: "venue", widget: "string" },
+                    { label: "Cidade", name: "city", widget: "string" },
+                    { label: "País", name: "country", widget: "string", required: false },
+                    { label: "Link de ingressos", name: "ticketsUrl", widget: "string", required: false },
+                    {
+                      label: "Status",
+                      name: "status",
+                      widget: "select",
+                      options: ["confirmed", "sold-out", "canceled"],
+                      default: "confirmed",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "presskit",
+              label: "Press Kit",
+              file: "content/presskit.yaml",
+              fields: [
+                {
+                  label: "Bio curta",
+                  name: "bioShort",
+                  widget: "object",
+                  fields: [
+                    { label: "Bio curta (PT)", name: "pt", widget: "text", required: false },
+                    { label: "Bio curta (EN)", name: "en", widget: "text", required: false },
+                  ],
+                },
+                { label: "Fotos", name: "photos", widget: "list", field: { label: "Imagem", name: "", widget: "image" } },
+                { label: "Logos", name: "logos", widget: "list", field: { label: "Imagem", name: "", widget: "image" } },
+                {
+                  label: "Integrantes",
+                  name: "members",
+                  widget: "list",
+                  fields: [
+                    { label: "Nome", name: "name", widget: "string" },
+                    { label: "Instrumento", name: "role", widget: "string" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

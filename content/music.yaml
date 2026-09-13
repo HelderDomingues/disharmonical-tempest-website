@@ -1,0 +1,21 @@
+# Music platforms + videos. Add video IDs (YouTube) after launch — they render as embeds automatically.
+platforms:
+  - name: Spotify
+    url: ""
+  - name: YouTube
+    url: ""
+  - name: Apple Music
+    url: ""
+  - name: Deezer
+    url: ""
+  - name: Bandcamp
+    url: ""
+
+latestRelease:
+  title: ""
+  date: "2026-09-18"
+
+videos:
+  []
+  # - title: "Single name"
+  #   youtubeId: "dQw4w9WgXcQ"

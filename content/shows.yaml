@@ -1,0 +1,10 @@
+# Live dates — edit via /admin. Leave list empty if no dates yet.
+# Fields: date (ISO), venue, city, country, ticketsUrl (optional), status
+shows:
+  []
+  # - date: "2026-10-31"
+  #   venue: "Local X"
+  #   city: "Campo Grande, MS"
+  #   country: "Brasil"
+  #   ticketsUrl: ""
+  #   status: "confirmed"

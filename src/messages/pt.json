@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "music": "Música",
+    "shows": "Shows",
+    "about": "A Banda",
+    "presskit": "Press Kit",
+    "contact": "Contato"
+  },
+  "hero": {
+    "tagline": "Death Metal Melódico · Campo Grande, MS · Brasil",
+    "daysShort": "d",
+    "hours": "h",
+    "minutes": "min",
+    "seconds": "s",
+    "outNow": "Disponível agora em todas as plataformas"
+  },
+  "music": {
+    "heading": "Música",
+    "subtitle": "Stream em todas as plataformas"
+  },
+  "shows": {
+    "heading": "Shows",
+    "empty": "Nenhuma data agendada. Fique atento.",
+    "tickets": "Ingressos"
+  },
+  "about": {
+    "heading": "A Banda",
+    "members": "Integrantes"
+  },
+  "contact": {
+    "heading": "Contato",
+    "intro": "Contratações, imprensa ou qualquer coisa — entre em contato.",
+    "namePlaceholder": "Nome",
+    "emailPlaceholder": "E-mail",
+    "messagePlaceholder": "Mensagem",
+    "send": "Enviar",
+    "thanks": "Mensagem enviada. Obrigado!",
+    "bookings": "Contratação:"
+  },
+  "presskit": {
+    "title": "Press Kit",
+    "subtitle": "Material para imprensa e contratação",
+    "bio": "Bio",
+    "photos": "Fotos",
+    "logos": "Logos",
+    "download": "Baixar",
+    "contactTitle": "Contato para imprensa",
+    "members": "Integrantes"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados"
+  }
+}

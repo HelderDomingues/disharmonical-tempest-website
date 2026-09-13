@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "music": "Music",
+    "shows": "Shows",
+    "about": "About",
+    "presskit": "Press Kit",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Melodic Death Metal · Campo Grande, MS · Brazil",
+    "daysShort": "d",
+    "hours": "h",
+    "minutes": "min",
+    "seconds": "s",
+    "outNow": "Out now on all platforms"
+  },
+  "music": {
+    "heading": "Music",
+    "subtitle": "Streaming on all platforms"
+  },
+  "shows": {
+    "heading": "Shows",
+    "empty": "No dates scheduled. Stay tuned.",
+    "tickets": "Tickets"
+  },
+  "about": {
+    "heading": "The Band",
+    "members": "Members"
+  },
+  "contact": {
+    "heading": "Contact",
+    "intro": "Bookings, press or anything else — drop us a line.",
+    "namePlaceholder": "Name",
+    "emailPlaceholder": "Email",
+    "messagePlaceholder": "Message",
+    "send": "Send",
+    "thanks": "Message sent. Thank you!",
+    "bookings": "Bookings:"
+  },
+  "presskit": {
+    "title": "Press Kit",
+    "subtitle": "Material for press and booking",
+    "bio": "Bio",
+    "photos": "Photos",
+    "logos": "Logos",
+    "download": "Download",
+    "contactTitle": "Press contact",
+    "members": "Members"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}
