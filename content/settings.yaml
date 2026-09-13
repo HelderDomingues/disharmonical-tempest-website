@@ -2,8 +2,10 @@
 # Release date format: ISO 8601. Streaming links appear in Hero + Music once filled.
 
 social:
-  instagram: "https://instagram.com/disharmonicaltempest"
+  instagram: "https://www.instagram.com/disharmonical_tempest"
+  tiktok: ""
   youtube: ""
+  facebook: ""
   spotify: ""
   deezer: ""
   appleMusic: ""
@@ -16,6 +18,9 @@ release:
   titleEn: "Self-titled EP · AKASHA Records"
 
 contact:
-  booking: "booking@disharmonicaltempest.com"
-  press: "press@disharmonicaltempest.com"
-  general: "contato@disharmonicaltempest.com"
+  general: "comercial.disharmonicaltempest@gmail.com"
+  booking: "comercial.disharmonicaltempest@gmail.com"
+  press: "comercial.disharmonicaltempest@gmail.com"
+  whatsapp: "5567999641488"
+  # Prefilled message for the WhatsApp link
+  whatsappMessage: "Olá. Quero informações sobre o Disharmonical Tempest."

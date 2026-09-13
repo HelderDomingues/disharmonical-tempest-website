@@ -1,9 +1,12 @@
 # Press kit content. Images live in public/images/presskit/ — upload via /admin.
 photos:
+  - "/images/presskit/band-vertical.webp"
+  - "/images/presskit/band-horizontal.webp"
   - "/images/band.webp"
 
 logos:
   - "/images/logo.svg"
+  - "/images/presskit/Logo_DisharmonicalTempest.pdf"
 
 bioShort:
   pt: >-

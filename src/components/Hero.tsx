@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useLocale } from "./LanguageProvider";
 import { useParallax } from "./useParallax";
+import StormCanvas from "./StormCanvas";
+import { iconFor } from "@/lib/platformIcons";
 import type { Settings } from "@/lib/content";
 
 function useCountdown(target: string) {
@@ -34,47 +36,39 @@ export default function Hero({ settings }: { settings: Settings }) {
   const countdown = useCountdown(settings.release.date);
 
   const bgRef = useParallax(0.15, 6);
-  const cloudsRef = useParallax(0.3, 16);
-  const bandRef = useParallax(0.45, 24);
+  const bandRef = useParallax(0.45, 0);
   const logoRef = useParallax(0.6, 0);
 
-  const socials = [
+  const platforms = [
     { name: "Spotify", url: settings.social.spotify },
     { name: "YouTube", url: settings.social.youtube },
     { name: "Apple Music", url: settings.social.appleMusic },
     { name: "Deezer", url: settings.social.deezer },
     { name: "Bandcamp", url: settings.social.bandcamp },
-    { name: "Instagram", url: settings.social.instagram },
-  ].filter((s) => s.url);
+  ];
 
   return (
     <section
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* Layer 0 — deep storm gradient + grain + rain + lightning */}
+      {/* Layer 0 — volumetric storm shader + grain + rain */}
       <div className="parallax-layer" ref={bgRef}>
         <div className="storm-gradient absolute inset-[-15%]" />
+        <StormCanvas className="absolute inset-0 h-full w-full" />
         <div className="grain absolute inset-0" />
         <div className="rain rain-fall" />
-        <div className="lightning lightning-hit" style={{ ["--flash-delay" as string]: "3.2s" }} />
       </div>
 
-      {/* Layer 1 — drifting fog clouds */}
-      <div className="parallax-layer" ref={cloudsRef}>
-        <div className="cloud cloud-drift-a absolute h-[45vh] w-[70vw] top-[10%] left-[-10%]" />
-        <div className="cloud cloud-b cloud-drift-b absolute h-[38vh] w-[55vw] top-[45%] right-[-15%]" />
-        <div className="cloud cloud-drift-c absolute h-[30vh] w-[60vw] top-[70%] left-[20%]" />
-        <div className="lightning lightning-hit" style={{ ["--flash-delay" as string]: "6.5s" }} />
-      </div>
+      {/* Layer 1 — fog was removed: the shader already renders volumetric clouds */}
 
       {/* Layer 2 — band photo */}
       <div className="parallax-layer" ref={bandRef}>
-        <picture className="absolute inset-x-0 bottom-[12vh] mx-auto block w-full max-w-5xl px-4">
+        <picture className="absolute inset-x-0 bottom-0 mx-auto flex justify-center overflow-x-clip">
           <img
             src="/images/band.webp"
             alt="Disharmonical Tempest"
-            className="mx-auto w-full max-w-5xl object-contain opacity-90"
+            className="h-auto w-[150vw] max-w-none object-contain object-bottom opacity-90 md:w-auto md:max-h-[70vh] md:max-w-[96rem]"
             loading="eager"
             fetchPriority="high"
           />
@@ -82,59 +76,66 @@ export default function Hero({ settings }: { settings: Settings }) {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[var(--bg-deep)]" />
       </div>
 
-      {/* Layer 3 — logo + countdown + links */}
-      <div className="parallax-layer flex h-full w-full flex-col items-center justify-center px-4 pb-[42vh]" ref={logoRef}>
+      {/* Layer 3 — logo (top, clear of header) + countdown stack (photo footer) */}
+      <div className="parallax-layer flex h-full w-full flex-col items-center px-4 pt-[4.5rem]" ref={logoRef}>
         <img
           src="/images/logo.svg"
           alt="Disharmonical Tempest"
-          className="logo-flicker w-full max-w-xl drop-shadow-[0_0_35px_rgba(200,212,232,0.25)]"
+          className="logo-flicker max-h-[26vh] w-auto max-w-xl drop-shadow-[0_0_35px_rgba(200,212,232,0.25)]"
         />
-        <p className="section-heading mt-4 text-sm text-steel md:text-base">
-          {t.hero.tagline}
-        </p>
 
-        {countdown && !countdown.out ? (
-          <div className="mt-8 flex items-center gap-3 font-mono text-lg text-bolt md:text-2xl">
-            {countdown.d !== undefined ? (
-              <>
-                <TimeCell value={countdown.d} label={t.hero.daysShort} />
-                <span className="opacity-50">:</span>
-                <TimeCell value={countdown.h} label={t.hero.hours} />
-                <span className="opacity-50">:</span>
-                <TimeCell value={countdown.m} label={t.hero.minutes} />
-                <span className="opacity-50">:</span>
-                <TimeCell value={countdown.s} label={t.hero.seconds} />
-              </>
-            ) : null}
-          </div>
-        ) : countdown?.out ? (
-          <p className="mt-8 section-heading text-sm text-ember md:text-base">
-            {t.hero.outNow}
-          </p>
-        ) : null}
-
-        {socials.length > 0 && (
-          <nav className="mt-8 flex flex-wrap justify-center gap-4">
-            {socials.map((s) => (
-              <a
-                key={s.name}
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="section-heading border border-steel/30 px-4 py-1.5 text-xs text-steel transition-colors hover:border-bolt hover:text-bolt"
-              >
-                {s.name}
-              </a>
-            ))}
-          </nav>
-        )}
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-steel/60">
-        <svg width="22" height="32" viewBox="0 0 22 32" fill="none" aria-hidden>
-          <path d="M11 2v26M11 28l-6-6M11 28l6-6" stroke="currentColor" strokeWidth="1.5" />
-        </svg>
+        <div className="mt-6 flex flex-col items-center md:mt-auto">
+          {countdown && !countdown.out ? (
+            <>
+              <p className="section-heading mt-6 max-w-xs text-center text-xs tracking-widest text-white md:max-w-none md:text-sm">
+                {t.hero.releaseHeading}
+              </p>
+              <div className="mt-4 flex items-center gap-3 rounded-xl bg-[#33125c]/50 px-5 py-3 font-mono text-3xl text-bolt md:mt-6 md:px-8 md:text-5xl">
+              {countdown.d !== undefined ? (
+                <>
+                  <TimeCell value={countdown.d} label={t.hero.daysShort} />
+                  <span className="opacity-50">:</span>
+                  <TimeCell value={countdown.h} label={t.hero.hours} />
+                  <span className="opacity-50">:</span>
+                  <TimeCell value={countdown.m} label={t.hero.minutes} />
+                  <span className="opacity-50">:</span>
+                  <TimeCell value={countdown.s} label={t.hero.seconds} />
+                </>
+              ) : null}
+              </div>
+              <div className="mt-4 flex items-center gap-4 pb-5">
+                {platforms.map((s) => {
+                  const icon = iconFor(s.name);
+                  const inner = icon ? (
+                    <img src={icon} alt="" className="h-6 w-6" aria-hidden />
+                  ) : (
+                    <span className="text-[10px] text-steel">{s.name}</span>
+                  );
+                  return s.url ? (
+                    <a
+                      key={s.name}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.name}
+                      className="transition-opacity hover:opacity-100"
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <span key={s.name} aria-disabled="true" className="opacity-40">
+                      {inner}
+                    </span>
+                  );
+                })}
+              </div>
+            </>
+          ) : countdown?.out ? (
+            <p className="mt-6 section-heading text-sm text-ember md:text-base">
+              {t.hero.outNow}
+            </p>
+          ) : null}
+        </div>
       </div>
     </section>
   );

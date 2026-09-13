@@ -3,6 +3,8 @@
     "music": "Música",
     "shows": "Shows",
     "about": "A Banda",
+    "socials": "Redes",
+    "merch": "Merch",
     "presskit": "Press Kit",
     "contact": "Contato"
   },
@@ -12,11 +14,13 @@
     "hours": "h",
     "minutes": "min",
     "seconds": "s",
-    "outNow": "Disponível agora em todas as plataformas"
+    "outNow": "Disponível agora em todas as plataformas",
+    "releaseHeading": "Lançamento nas plataformas digitais"
   },
   "music": {
     "heading": "Música",
-    "subtitle": "Stream em todas as plataformas"
+    "subtitle": "Stream em todas as plataformas",
+    "cta": "Acompanhe o lançamento"
   },
   "shows": {
     "heading": "Shows",
@@ -35,7 +39,8 @@
     "messagePlaceholder": "Mensagem",
     "send": "Enviar",
     "thanks": "Mensagem enviada. Obrigado!",
-    "bookings": "Contratação:"
+    "bookings": "Contratação:",
+    "whatsapp": "Fale com a banda no WhatsApp"
   },
   "presskit": {
     "title": "Press Kit",
@@ -46,6 +51,16 @@
     "download": "Baixar",
     "contactTitle": "Contato para imprensa",
     "members": "Integrantes"
+  },
+  "socials": {
+    "heading": "Redes Sociais",
+    "subtitle": "Siga a tempestade e acompanhe a banda de perto.",
+    "cta": "Siga a Tempestade"
+  },
+  "merch": {
+    "heading": "Merch",
+    "soon": "Em breve",
+    "soonDetail": "Camisetas, copos térmicos e bonés já estão em produção. Aguarde o lançamento da coleção oficial."
   },
   "footer": {
     "rights": "Todos os direitos reservados"

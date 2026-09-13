@@ -62,52 +62,7 @@ body {
   100% { transform: translate(0, 0); }
 }
 
-/* Drifting fog clouds */
-.cloud {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  background: radial-gradient(ellipse at center, rgba(139, 147, 167, 0.16), transparent 70%);
-  will-change: transform;
-}
-
-.cloud-b {
-  background: radial-gradient(ellipse at center, rgba(138, 22, 38, 0.1), transparent 70%);
-}
-
-@keyframes drift {
-  0% { transform: translateX(-6%) translateY(0); }
-  50% { transform: translateX(6%) translateY(-2%); }
-  100% { transform: translateX(-6%) translateY(0); }
-}
-
-.cloud-drift-a { animation: drift 26s ease-in-out infinite; }
-.cloud-drift-b { animation: drift 34s ease-in-out infinite reverse; }
-.cloud-drift-c { animation: drift 41s ease-in-out infinite; }
-
 /* Lightning flash */
-.lightning {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(200, 212, 232, 0.18), transparent 45%);
-  opacity: 0;
-}
-
-.lightning-hit {
-  animation: flash 5.5s infinite;
-  animation-delay: var(--flash-delay, 2s);
-}
-
-@keyframes flash {
-  0%, 100% { opacity: 0; }
-  92% { opacity: 0; }
-  93% { opacity: 0.9; }
-  94% { opacity: 0.1; }
-  95.5% { opacity: 0.7; }
-  97% { opacity: 0; }
-}
-
 /* Rain streaks */
 .rain {
   position: absolute;
@@ -191,10 +146,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .grain::after,
-  .cloud-drift-a,
-  .cloud-drift-b,
-  .cloud-drift-c,
-  .lightning-hit,
   .rain-fall,
   .logo-flicker {
     animation: none;

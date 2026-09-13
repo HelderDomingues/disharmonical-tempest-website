@@ -28,18 +28,26 @@ export type MusicVideo = { title: string; youtubeId: string };
 export type Settings = {
   social: {
     instagram: string;
+    tiktok: string;
     youtube: string;
+    facebook: string;
     spotify: string;
     deezer: string;
     appleMusic: string;
     bandcamp: string;
   };
   release: { date: string; titlePt: string; titleEn: string };
-  contact: { booking: string; press: string; general: string };
+  contact: {
+    booking: string;
+    press: string;
+    general: string;
+    whatsapp?: string;
+    whatsappMessage?: string;
+  };
 };
 
 export type Bio = { pt: string; en: string };
-export type Member = { name: string; role: string };
+export type Member = { name: string; role: string; image?: string };
 export type ContactContent = Settings["contact"];
 
 export type PressKitData = {
@@ -63,14 +71,16 @@ export function getSettings(): Settings {
   return readYaml<Settings>("settings.yaml", {
     social: {
       instagram: "https://instagram.com/disharmonicaltempest",
+      tiktok: "",
       youtube: "",
+      facebook: "",
       spotify: "",
       deezer: "",
       appleMusic: "",
       bandcamp: "",
     },
     release: { date: "2026-09-18", titlePt: "", titleEn: "" },
-    contact: { booking: "", press: "", general: "" },
+    contact: { booking: "", press: "", general: "", whatsapp: "", whatsappMessage: "" },
   });
 }
 

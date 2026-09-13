@@ -9,14 +9,14 @@ export default function ShowsSection({ shows }: { shows: ShowEntry[] }) {
 
   return (
     <section id="shows" className="relative mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-32">
-      <Reveal>
+      <Reveal className="text-center">
         <h2 className="section-heading heading-strike text-3xl text-bolt md:text-5xl">
           {t.shows.heading}
         </h2>
       </Reveal>
 
       {shows.length === 0 ? (
-        <Reveal delay={120}>
+        <Reveal delay={120} className="text-center">
           <p className="mt-12 text-steel md:text-lg">{t.shows.empty}</p>
         </Reveal>
       ) : (

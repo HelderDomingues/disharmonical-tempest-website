@@ -3,6 +3,8 @@
     "music": "Music",
     "shows": "Shows",
     "about": "About",
+    "socials": "Socials",
+    "merch": "Merch",
     "presskit": "Press Kit",
     "contact": "Contact"
   },
@@ -12,11 +14,13 @@
     "hours": "h",
     "minutes": "min",
     "seconds": "s",
-    "outNow": "Out now on all platforms"
+    "outNow": "Out now on all platforms",
+    "releaseHeading": "Release on digital platforms"
   },
   "music": {
     "heading": "Music",
-    "subtitle": "Streaming on all platforms"
+    "subtitle": "Streaming on all platforms",
+    "cta": "Follow the release"
   },
   "shows": {
     "heading": "Shows",
@@ -35,7 +39,8 @@
     "messagePlaceholder": "Message",
     "send": "Send",
     "thanks": "Message sent. Thank you!",
-    "bookings": "Bookings:"
+    "bookings": "Bookings:",
+    "whatsapp": "Chat with the band on WhatsApp"
   },
   "presskit": {
     "title": "Press Kit",
@@ -46,6 +51,16 @@
     "download": "Download",
     "contactTitle": "Press contact",
     "members": "Members"
+  },
+  "socials": {
+    "heading": "Social",
+    "subtitle": "Follow the storm and keep up with the band.",
+    "cta": "Follow the Storm"
+  },
+  "merch": {
+    "heading": "Merch",
+    "soon": "Coming soon",
+    "soonDetail": "T-shirts, thermal cups and caps are already in production. Stay tuned for the official collection launch."
   },
   "footer": {
     "rights": "All rights reserved"

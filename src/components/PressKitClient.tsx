@@ -18,7 +18,7 @@ export default function PressKitClient({
 
   return (
     <main className="mx-auto max-w-4xl flex-1 px-4 py-28 md:px-6 md:py-32">
-      <Reveal>
+      <Reveal className="text-center">
         <h1 className="section-heading heading-strike text-3xl text-bolt md:text-5xl">
           {t.presskit.title}
         </h1>
@@ -67,23 +67,37 @@ export default function PressKitClient({
           <section className="mt-14">
             <h2 className="section-heading text-lg text-ember">{t.presskit.logos}</h2>
             <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {pressKit.logos.map((src, i) => (
-                <a
-                  key={src}
-                  href={src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center border border-steel/15 bg-[var(--bg-storm)] p-6"
-                  download
-                >
-                  <img
-                    src={src}
-                    alt={`Logo ${i + 1}`}
-                    className="max-h-16 w-auto object-contain"
-                    loading="lazy"
-                  />
-                </a>
-              ))}
+              {pressKit.logos.map((src) => {
+                const format = (src.split(".").pop() || "").toUpperCase();
+                const fileName = src.split("/").pop() || src;
+                const isImage = ["SVG", "PNG", "JPG", "JPEG", "WEBP"].includes(format);
+                return (
+                  <a
+                    key={src}
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-3 border border-steel/15 bg-[var(--bg-storm)] p-6 transition-colors hover:border-ember/50"
+                    download={fileName}
+                  >
+                    {isImage ? (
+                      <img
+                        src={src}
+                        alt={`Logo (${format})`}
+                        className="max-h-16 w-auto object-contain"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="section-heading flex h-16 items-center border border-ember/40 px-5 text-2xl text-ember">
+                        {format}
+                      </span>
+                    )}
+                    <span className="text-center text-xs tracking-widest text-steel">
+                      {t.presskit.download} · {format}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </section>
         </Reveal>

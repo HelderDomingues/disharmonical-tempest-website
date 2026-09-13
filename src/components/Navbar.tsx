@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useLocale } from "./LanguageProvider";
 import { createPortal } from "react-dom";
 
@@ -8,26 +9,35 @@ const links = [
   { id: "music", label: "music" },
   { id: "shows", label: "shows" },
   { id: "about", label: "about" },
+  { id: "social", label: "socials" },
+  { id: "merch", label: "merch" },
   { id: "presskit", label: "presskit" },
   { id: "contact", label: "contact" },
 ] as const;
 
+const PRESSKIT = "presskit";
+
 export default function Navbar() {
   const { t, locale, setLocale } = useLocale();
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  const hrefFor = (id: string) =>
+    id === PRESSKIT ? "/presskit" : isHome ? `#${id}` : `/#${id}`;
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-steel/10 bg-[var(--bg-deep)]/80 backdrop-blur-md">
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:h-16 md:px-6">
-        <a href="#hero" className="flex items-center gap-2">
+        <a href={isHome ? "#hero" : "/"} className="flex items-center gap-2">
           <img src="/images/logo.svg" alt="Disharmonical Tempest" className="h-8 w-auto" />
         </a>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-5 md:flex">
           {links.map((l) => (
             <a
               key={l.id}
-              href={l.id === "presskit" ? "/presskit" : `#${l.id}`}
+              href={hrefFor(l.id)}
               className="section-heading text-xs text-steel transition-colors hover:text-bolt"
             >
               {t.nav[l.label]}
@@ -59,7 +69,7 @@ export default function Navbar() {
             {links.map((l) => (
               <a
                 key={l.id}
-                href={l.id === "presskit" ? "/presskit" : `#${l.id}`}
+                href={hrefFor(l.id)}
                 className="section-heading text-xl text-bolt"
                 onClick={() => setOpen(false)}
               >
@@ -82,16 +92,27 @@ function LocaleToggle({
   setLocale: (l: "pt" | "en") => void;
 }) {
   return (
-    <div className="flex items-center gap-1 rounded-full border border-steel/25 px-2 py-0.5">
+    <div className="flex items-center gap-1.5">
       {(["pt", "en"] as const).map((l) => (
         <button
           key={l}
           onClick={() => setLocale(l)}
-          className={`section-heading px-1.5 text-xs uppercase transition-colors ${
-            locale === l ? "text-bolt" : "text-steel/50 hover:text-steel"
+          aria-label={l === "pt" ? "Português" : "English"}
+          aria-pressed={locale === l}
+          title={l === "pt" ? "Português" : "English"}
+          className={`rounded-full transition-all ${
+            locale === l
+              ? "ring-1 ring-bolt"
+              : "opacity-40 hover:opacity-75"
           }`}
         >
-          {l}
+          <img
+            src={`/images/icons/flag-${l === "pt" ? "br" : "uk"}.svg`}
+            alt=""
+            width="20"
+            height="20"
+            className="h-5 w-5 rounded-full"
+          />
         </button>
       ))}
     </div>

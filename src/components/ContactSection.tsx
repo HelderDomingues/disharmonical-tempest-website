@@ -12,7 +12,7 @@ export default function ContactSection({ contact }: { contact: ContactContent })
 
   return (
     <section id="contact" className="relative mx-auto max-w-3xl px-4 py-24 md:px-6 md:py-32">
-      <Reveal>
+      <Reveal className="text-center">
         <h2 className="section-heading heading-strike text-3xl text-bolt md:text-5xl">
           {t.contact.heading}
         </h2>
@@ -71,12 +71,33 @@ export default function ContactSection({ contact }: { contact: ContactContent })
       </Reveal>
 
       <Reveal delay={200}>
-        <p className="mt-10 text-sm text-steel">
-          {t.contact.bookings}{" "}
-          <a href={`mailto:${email}`} className="text-bolt underline-offset-4 hover:underline">
-            {email}
-          </a>
-        </p>
+        <div className="mt-10 flex flex-col items-center gap-4 text-sm text-steel">
+          {contact.whatsapp && (
+            <a
+              href={`https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+                contact.whatsappMessage || "",
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 border border-steel/30 bg-steel/5 px-6 py-3 text-bolt transition-colors hover:border-ember hover:text-ember"
+            >
+              <img
+                src="/images/icons/whatsapp.svg"
+                alt=""
+                width={20}
+                height={20}
+                className="h-5 w-5"
+              />
+              {t.contact.whatsapp}
+            </a>
+          )}
+          <p>
+            {t.contact.bookings}{" "}
+            <a href={`mailto:${email}`} className="text-bolt underline-offset-4 hover:underline">
+              {email}
+            </a>
+          </p>
+        </div>
       </Reveal>
     </section>
   );
